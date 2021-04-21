@@ -129,7 +129,7 @@ const ScrollableTabBar = createReactClass({
     const { activeTextColor, inactiveTextColor, textStyle, activeTextStyle, } = this.props;
     const textColor = isTabActive ? activeTextColor : inactiveTextColor;
     const fontWeight = isTabActive ? 'bold' : 'normal';
-    const curTextStyle = isTabActive ? textStyle : activeTextStyle;
+    const curTextStyle = isTabActive ? activeTextStyle : textStyle;
 
     return <Button
       key={`${name}_${page}`}
