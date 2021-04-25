@@ -105,8 +105,12 @@ const ScrollableTabBar = createReactClass({
     }
 
   },
+  
+  prevPageOffset: 0,
 
   updateTabUnderline(position, pageOffset, tabCount) {
+    if(pageOffset==this.prevPageOffset) return
+    
     const lineLeft = this._tabsMeasurements[position].left;
     const lineRight = this._tabsMeasurements[position].right;
 
@@ -123,6 +127,8 @@ const ScrollableTabBar = createReactClass({
       this.state._leftTabUnderline.setValue(lineLeft);
       this.state._widthTabUnderline.setValue(lineRight - lineLeft);
     }
+    
+    this.prevPageOffset = pageOffset
   },
 
   renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
